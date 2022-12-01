@@ -11,32 +11,24 @@ occurence = -1
 app = ""
 
 while (app != "sms" and app != "whatsapp" and app != "instagram"):
-    print("sms, whatsapp or instagram ?")
-    app = input()
+    app = pyautogui.prompt("sms, whatsapp or instagram ?")
 
 if (app == "whatsapp"):
-    print("what is the name of your contact ?")
-    contact = input()
+    contact = pyautogui.prompt("What is your contact name?")
 elif (app == "sms"):
     while (contact < 600000000 or contact > 799999999 or not isinstance(contact, int)):
-        print("what is the number of your contact?")
-        contact = int(input())
+        contact = int(pyautogui.prompt("What is your contact name?"))
 elif (app == "instagram"):
-    print("what is the name of your contact ?")
-    contact = input()
+    contact = pyautogui.prompt("What is your contact name?")
 
-print("what is your message ?")
-msg = input()
-print("and how many times do you want to send this message ?")
-occurence = int(input())
-
-print("Alright so you want to send \"" + str(msg) + "\" " +
-      str(occurence) + " times to " + str(contact) + "\n[yes/no]")
-answer = input()
-if (answer != "yes"):
+msg = pyautogui.prompt("What is your message ?")
+occurence = int(pyautogui.prompt("and how many times do you want to send this message ?"))
+answer = pyautogui.confirm("Alright so you want to send \"" + str(msg) + "\" " +
+      str(occurence) + " times to " + str(contact) + "\n")
+      
+if (answer != "OK"):
     print("bye")
     exit()
-
 
 # open chrome via terminal
 os.system("gnome-terminal -e 'google-chrome'")
