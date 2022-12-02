@@ -1,1 +1,1 @@
-# Computer_control
+# Dino_automatic_player
